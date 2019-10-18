@@ -21,7 +21,7 @@
   color: #09d3ac;
 }
 
-.LogBlock, .DashBlock{
+.LogBlock, .DashBlock, .SignupBlock{
   background-color: rgb(223, 237, 241);
   width: 75%;
   margin: 3% 12.5%;
