@@ -24,11 +24,10 @@ class Signup extends React.Component {
   login = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('/auth/signup', this.state.credentials)
+      .post('/auth/register', this.state.credentials)
       .then(res => {
         console.log("Successful signup");
-        localStorage.setItem('token', res.data.payload);
-        this.props.history.push('/dashboard');
+        this.props.history.push('/');
       })
       .catch(err => console.log('Oh-oh, something wrong', err));
   };
@@ -38,7 +37,7 @@ class Signup extends React.Component {
   return (
     <div className="SignupBlock">
     <Container text>
-      <Header as='h2'>Welcome to the African Marketplace App!</Header>
+      <Header as='h2'>Welcome to the Dad Joke App!</Header>
       <Header as='h3'>Fill this from for new account</Header>
       <Form onSubmit={this.login}>
         <Form.Field>
