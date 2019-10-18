@@ -6,13 +6,24 @@ const authenticate = require('../auth/authenticate-middleware.js');
 const authRouter = require('../auth/auth-router.js');
 const jokesRouter = require('../jokes/jokes-router.js');
 
+const logger = (req, res, next) => {
+    console.log(`[${new Date().toISOString()}] Was method "${req.method}" to address "${req.path}"`);
+    next();
+}
+
 const server = express();
 
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
+server.use(logger);
 
 server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
+
+server.get('/', (req, res) => {
+    res.send("It's alive!");
+  });
+  
 
 module.exports = server;
