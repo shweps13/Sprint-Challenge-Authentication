@@ -21,11 +21,11 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post('/login', this.state.credentials)
+      .post('/auth/login', this.state.credentials)
       .then(res => {
         console.log(res);
         console.log("Successful login");
-        localStorage.setItem('token', res.data.payload);
+        localStorage.setItem('token', res.data.token);
         this.props.history.push('/dashboard');
       })
       .catch(err => console.log('Oh-oh, something wrong', err));
