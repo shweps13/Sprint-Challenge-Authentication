@@ -30,3 +30,14 @@
   border-radius: 15px;
   border: 1px solid lightgray;
 }
+
+.Menu {
+  padding-top: 1%;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.Menu a{
+  color: white;
+}
