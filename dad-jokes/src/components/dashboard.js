@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosWithAuth from "../utilites/axiosWithAuth";
-
+import JokeCard from "./JokeCard";
+import { Card } from 'semantic-ui-react';
 
 function Dashboard() {
 
@@ -20,6 +21,15 @@ useEffect(() => {
   return (
     <div className="DashBlock">
         <h2>Dad Jokes</h2>
+        <Card.Group centered>
+                {jokes.map(joke => (
+                    <JokeCard 
+                    id={joke.id} 
+                    key={joke.id} 
+                    joke={joke.joke}
+                    />
+                ))}
+        </Card.Group>
     </div>
   );
 }
